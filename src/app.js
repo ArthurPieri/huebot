@@ -14,6 +14,10 @@ bot.command('start', (msg, reply) => {
     reply.text('Digite o áudio que você deseja')
 })
 
+bot.command('info', (msg, reply) => {
+    reply.text('Mais informações em: https://github.com/ArthurPieri/Huebot')
+})
+
 bot.command('help', (msg, reply) => {
     reply.text(`Lista de áudios disponíveis: \n${audios}`)
 })
