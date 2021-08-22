@@ -4,7 +4,8 @@
   "description": "Just some Huehue bot",
   "main": "app,js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "env-cmd -f .env nodemon src/app.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,9 @@
   },
   "homepage": "https://github.com/ArthurPieri/huebot#readme",
   "dependencies": {
-    "telebot": "^1.4.1"
+    "botgram": "^2.2.0"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0"
   }
 }
