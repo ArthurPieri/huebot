@@ -14,10 +14,6 @@ bot.command('start', (msg, reply) => {
     reply.text('Digite o áudio que você deseja')
 })
 
-bot.processInlineQuery('start', (msg, reply) => {
-    reply.text('lalala')
-})
-
 bot.command('help', (msg, reply) => {
     reply.text(`Lista de áudios disponíveis: \n${audios}`)
 })
