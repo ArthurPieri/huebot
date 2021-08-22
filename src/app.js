@@ -18,9 +18,6 @@ bot.processInlineQuery('start', (msg, reply) => {
     reply.text('lalala')
 })
 
-//console.log(bot.processInlineQuery.toString())
-//console.log(bot.processChosenInlineResult.toString())
-
 bot.command('help', (msg, reply) => {
     reply.text(`Lista de áudios disponíveis: \n${audios}`)
 })
