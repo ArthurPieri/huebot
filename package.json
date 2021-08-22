@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/ArthurPieri/huebot#readme",
   "dependencies": {
-    "botgram": "^2.2.0"
+    "botgram": "^2.2.0",
+    "dotenv": "^10.0.0"
   },
   "devDependencies": {
     "env-cmd": "^10.1.0"

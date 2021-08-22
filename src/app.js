@@ -1,11 +1,15 @@
+require('dotenv').config()
+console.log(process.env.HUE_BOT_TOKEN)
 const botgram = require('botgram')
-const bot = botgram(process.env.BOT_TOKEN)
+const bot = botgram(process.env.HUE_BOT_TOKEN)
 const fs = require('fs')
 const path = require('path')
 
-let audios = ['calma\n', 'errou\n', ' Filosofo Piton\n', ' grilo\n', ' leroy\n', ' morreu\n', 
-' Nada a ver\n', ' Naruto triste\n',' rapaz\n', ' Tchau querida\n', ' Uepa\n', ' Vai dar merda\n', 
-' vou te comer\n', ' wow\n']
+// Search for all the audios in the directory
+let audios = []
+fs.readdirSync(path.join(__dirname, 'audio'))
+    .forEach(file => 
+        audios.push(file.split('.mp3').join(' \n')))
 
 bot.command('start', (msg, reply) => {
     reply.text('Digite o áudio que você deseja')
@@ -18,7 +22,8 @@ bot.command('help', (msg, reply) => {
 bot.text((msg, reply) => {
     let audi = []
     audios.forEach(audio => {
-        audi.push((audio.split(' ').join('').split('\n').join('')))
+        // Clear all the audio names by removing spaces, \n and send all to lowercase
+        audi.push((audio.split(' ').join('').split('\n').join('').toLowerCase()))
     })
     if(audi.includes(msg.text.toLowerCase().replace(/\s/g, ''))) {
         reply.audio(fs.createReadStream(path.join(__dirname, 'audio', `${msg.text.toLowerCase().replace(/\s/g, '')}.mp3`)))
