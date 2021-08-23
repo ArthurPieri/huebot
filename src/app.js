@@ -26,10 +26,11 @@ bot.text((msg, reply) => {
     let audi = []
     audios.forEach(audio => {
         // Clear all the audio names by removing spaces, \n and send all to lowercase
-        audi.push((audio.split(' ').join('').split('\n').join('').toLowerCase()))
+        // audi.push((audio.split(' ').join('').split('\n').join('').toLowerCase()))
+        audi.push((audio.replace(/\s+/g, '').toLowerCase()))
     })
     if(msg.chat.type === 'user') {
-        if(audi.includes(msg.text.toLowerCase().replace(/\s/g, ''))) {
+        if(audi.includes(msg.text.toLowerCase().replace(/\s+/g, ''))) {
             reply.audio(fs.createReadStream(path.join(__dirname, 'audio', `${msg.text.toLowerCase().replace(/\s/g, '')}.mp3`)))
         } else {
             reply.text(`Audio não encontrado , tente um dos seguintes: \n${audios}`)
