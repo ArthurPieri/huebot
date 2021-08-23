@@ -30,14 +30,16 @@ bot.text((msg, reply) => {
     })
     if(msg.chat.type === 'user') {
         if(audi.includes(msg.text.toLowerCase().replace(/\s+/g, ''))) {
-            reply.audio(fs.createReadStream(path.join(__dirname, 'audio', `${msg.text.toLowerCase().replace(/\s/g, '')}.mp3`)))
+            reply.audio(fs.createReadStream(
+                path.join(__dirname, 'audio', `${msg.text.toLowerCase().replace(/\s/g, '')}.mp3`)))
         } else {
             reply.text(`Audio não encontrado , tente um dos seguintes: \n${audios}`)
         }    
     }else{
         if(msg.text.toLowerCase().indexOf('@ap_huehue_bot') === 0) {
             if(audi.includes(msg.text.toLowerCase().replace('@ap_huehue_bot', '').replace(/\s/g, ''))) {
-                reply.audio(fs.createReadStream(path.join(__dirname, 'audio', `${msg.text.toLowerCase().replace('@ap_huehue_bot', '').replace(/\s/g, '')}.mp3`)))
+                reply.audio(fs.createReadStream(
+                    path.join(__dirname, 'audio', `${msg.text.toLowerCase().replace('@ap_huehue_bot', '').replace(/\s/g, '')}.mp3`)))
             } else {
                 reply.text(`Audio não encontrado , tente um dos seguintes: \n${audios}`)
             }
