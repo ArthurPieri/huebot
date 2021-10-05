@@ -8,19 +8,24 @@ const path = require('path')
 let audios = []
 fs.readdirSync(path.join(__dirname, 'audio'))
     .forEach(file => 
-        audios.push(file.split('.mp3').join(' \n')))
+        audios.push(file.split('.mp3').join('\n')))
 
 bot.command('start', (msg, reply) => {
-    reply.text('Digite o áudio que você deseja')
+    reply.text('Digite o nome do áudio que você deseja')
 })
 
 bot.command('info', (msg, reply) => {
     reply.text('Mais informações em: https://github.com/ArthurPieri/Huebot')
 })
 
-bot.command('help', (msg, reply) => {
+bot.command('list', (msg, reply) => {
     reply.text(`Lista de áudios disponíveis: \n${audios}`)
 })
+
+bot.command('help', (msg, reply) => {
+    reply.text(`Audios para tornar suas conversas ainda melhores: \n${audios}`)
+})
+
 
 bot.text((msg, reply) => {
     let audi = []
