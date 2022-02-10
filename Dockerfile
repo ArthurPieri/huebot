@@ -8,4 +8,4 @@ WORKDIR /home/node
 COPY --chown=node:node . /home/node
 
 RUN npm ci
-CMD 
+CMD ["node", "src/app.js"]
