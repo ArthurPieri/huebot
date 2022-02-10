@@ -7,4 +7,5 @@ WORKDIR /home/node
 
 COPY --chown=node:node . /home/node
 
-RUN npm ci && npm run start
+RUN npm ci
+CMD ["node", "src/app.js"]
