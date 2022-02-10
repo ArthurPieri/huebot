@@ -4,6 +4,7 @@
   "description": "Just some Huehue bot",
   "main": "app,js",
   "scripts": {
+    "start": "env-cmd -f .env node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "env-cmd -f .env nodemon src/app.js"
   },
